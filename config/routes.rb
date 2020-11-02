@@ -7,10 +7,11 @@ Rails.application.routes.draw do
 
   # Topic routes
   resources :topics, only: [:show, :edit, :update, :destroy] do
-    #resources :indicator_posts, only: [:new, :create, :destroy]
+    resources :notes, only: [:new, :create, :destroy]
   end
 
-  resources :notes
+  resources :notes, only: [:show, :edit, :update, :destroy]
+
   # root to: 'pages#home'
   root to: 'concepts#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

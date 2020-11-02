@@ -10,7 +10,19 @@
   <%= @topic.overview %>
 </p>
 
-<!-- <p><%#= link_to 'New Topic', new_concept_topic_path(@concept) %></p> -->
+<% @topic.notes.each do |note| %>
+  <div class="card">
+    <div class="card-header">
+      <h4> <%= note.title %> </h4>
+    </div>
+    <div class="card-body">
+      <%= note.content %>
+      <%= link_to 'Edit', edit_note_path(note) %>
+    </div>
+  </div>
+<% end %>
+
+<p><%= link_to 'New Note', new_topic_note_path(@topic) %></p>
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', concept_path(@topic.concept) %>

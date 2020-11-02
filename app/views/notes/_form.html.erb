@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@note) do |f| %>
+<%= simple_form_for [ @topic, @note ] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -8,7 +8,7 @@
     <%#= f.text_area :content, data: { editor: 'markdown' }, rows: 10 %>
     <div class="field">
       <%= f.label :content %>
-      <%= f.rich_text_area :content %>
+      <%= f.rich_text_area :content, class: "trix-editor customized-min-height" %>
     </div>
   </div>
 

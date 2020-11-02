@@ -14,6 +14,7 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
+    @topic = Topic.find(params[:topic_id])
     @note = Note.new
   end
 
@@ -25,6 +26,8 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    @topic = Topic.find(params[:topic_id])
+    @note.topic = @topic
 
     respond_to do |format|
       if @note.save
