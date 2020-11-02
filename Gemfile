@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Gem for markdown content
 gem 'kramdown'
+gem 'ace-rails-ap'
+gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.3.0'
