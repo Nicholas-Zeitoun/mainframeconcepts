@@ -1,3 +1,7 @@
+<div class="row">
+
+
+<div class="col-8">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,5 +26,42 @@
 
 <p><%= link_to 'New Topic', new_concept_topic_path(@concept) %></p>
 
+</div>
+
+<div class="col-4">
+  <div class="position-fixed">
+    <h3>Resources</h3>
+
+    <% @concept.resources.each do |resource| %>
+      <p><%= resource.title %></p>
+        <%#= link_to 'Delete', topic_resource_path(resource.resourcable, resource), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
+    <p>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Add Resource
+      </button>
+    </p>
+
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <%= simple_form_for [ @concept, @resource ] do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <%= f.input :title, label: 'Resource Title' %>
+          <%= f.input :category, label: 'Resource Category' %>
+          <%= f.input :link, label: 'Resource Link' %>
+
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
 <%= link_to 'Edit', edit_concept_path(@concept) %> |
 <%= link_to 'Back', concepts_path %>

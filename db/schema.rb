@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_124607) do
+ActiveRecord::Schema.define(version: 2020_11_02_142919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 2020_11_02_124607) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "topic_id", null: false
     t.index ["topic_id"], name: "index_notes_on_topic_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "title"
+    t.string "category"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "resourcable_type"
+    t.bigint "resourcable_id"
+    t.index ["resourcable_type", "resourcable_id"], name: "index_resources_on_resourcable_type_and_resourcable_id"
   end
 
   create_table "topics", force: :cascade do |t|

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mainframeconcepts</title>
+    <title>Mainframe Concepts</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300|Roboto+Slab">
     <%= csrf_meta_tags %>
@@ -16,13 +16,13 @@
 
   <body>
     <%= render 'navbar' %>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
+    <div class="container mt-5 pt-5">
+      <!-- <div class="row mt-4"> -->
+        <!-- <div class="col-sm-8 col-sm-offset-2"> -->
           <%= render "flash" %>
           <%= yield %>
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
     </div>
   </body>
 </html>

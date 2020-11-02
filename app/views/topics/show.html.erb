@@ -1,28 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-8">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @topic.title %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @topic.title %>
+    </p>
 
-<p>
-  <strong>Overview:</strong>
-  <%= @topic.overview %>
-</p>
+    <p>
+      <strong>Overview:</strong>
+      <%= @topic.overview %>
+    </p>
 
-<% @topic.notes.each do |note| %>
-  <div class="card">
-    <div class="card-header">
-      <h4> <%= note.title %> </h4>
-    </div>
-    <div class="card-body">
-      <%= note.content %>
-      <%= link_to 'Edit', edit_note_path(note) %>
-    </div>
+    <% @topic.notes.each do |note| %>
+      <div class="card">
+        <div class="card-header">
+          <h4> <%= note.title %> </h4>
+        </div>
+        <div class="card-body">
+          <%= note.content %>
+          <%= link_to 'Edit', edit_note_path(note) %>
+        </div>
+      </div>
+    <% end %>
+
+    <p><%= link_to 'New Note', new_topic_note_path(@topic) %></p>
   </div>
-<% end %>
+  <div class="col-4">
+    <div class="position-fixed">
+      <h3>Resources</h3>
 
-<p><%= link_to 'New Note', new_topic_note_path(@topic) %></p>
+      <% @topic.resources.each do |resource| %>
+        <p><%= resource.title %></p>
+          <%#= link_to 'Delete', topic_resource_path(resource.resourcable, resource), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', concept_path(@topic.concept) %>
+      <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Add Resource
+        </button>
+      </p>
+
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <%= simple_form_for [ @topic, @resource ] do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+            <%= f.input :title, label: 'Resource Title' %>
+            <%= f.input :category, label: 'Resource Category' %>
+            <%= f.input :link, label: 'Resource Link' %>
+
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<hr>
+<p> <%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', concept_path(@topic.concept) %> </p>

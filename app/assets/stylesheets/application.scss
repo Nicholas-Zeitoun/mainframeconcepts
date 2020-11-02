@@ -15,6 +15,10 @@
 // Trix
 @import "./actiontext.scss";
 
+body {
+  background-color: white;
+}
+
 article {
   font-family: Roboto;
   font-weight: 300;
@@ -28,4 +32,8 @@ article img {
 article h1, article h2, article h3, article h4, article h5, article h6 {
   font-family: "Roboto Slab";
   font-weight: 400;
+}
+
+.trix-editor {
+  min-height: 25em !important;
 }

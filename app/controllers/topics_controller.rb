@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def show
+    @resource = @topic.resources.new
   end
 
   def new
@@ -32,6 +33,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    raise
     @topic.destroy
     redirect_to root_path
   end
