@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :acronyms
   get 'resources/new'
   get 'resources/show'
   get 'resources/edit'

@@ -28,10 +28,13 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="OCAD Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <%= form_tag acronyms_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mr-sm-2",
+          placeholder: "O.C.A.D Search"%>
+        <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
     </div>
   </div>
 </nav>
