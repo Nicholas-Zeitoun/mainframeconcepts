@@ -1,0 +1,9 @@
+<%= simple_form_for [ @concept, @topic ] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= f.input :title, label: 'Topic Title' %>
+  <%= f.input :overview, label: 'Topic Overview', :as => :text %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

@@ -10,5 +10,17 @@
   <%= @concept.category %>
 </p>
 
+<p><strong>Topics:</strong></p>
+
+<% @concept.topics.each do |topic| %>
+  <div class="card">
+    <div class="card-body">
+      <%= link_to topic.title, topic_path(topic), class: "stretched-link" %>
+    </div>
+  </div>
+<% end %>
+
+<p><%= link_to 'New Topic', new_concept_topic_path(@concept) %></p>
+
 <%= link_to 'Edit', edit_concept_path(@concept) %> |
 <%= link_to 'Back', concepts_path %>
