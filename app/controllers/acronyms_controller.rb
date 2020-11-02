@@ -4,7 +4,12 @@ class AcronymsController < ApplicationController
   # GET /acronyms
   # GET /acronyms.json
   def index
-    @acronyms = Acronym.all
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR content ILIKE :query"
+      @acronyms = Acronym.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @acronyms = Acronym.all
+    end
   end
 
   # GET /acronyms/1
