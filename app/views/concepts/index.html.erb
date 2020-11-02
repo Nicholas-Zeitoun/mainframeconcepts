@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Concepts</h1>
+
+<tbody>
+  <% @concepts.each do |concept| %>
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header"><%= link_to concept.title, concept %></div>
+      <div class="card-body">
+        <p class="card-text"><%= link_to 'Edit', edit_concept_path(concept) %></p>
+        <p class="card-text"><%= link_to 'Destroy', concept, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+    </div>
+  <% end %>
+</tbody>
+
+<br>
+
+<%= link_to 'New Concept', new_concept_path %>
