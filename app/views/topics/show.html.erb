@@ -64,4 +64,7 @@
 
 <hr>
 <p> <%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to topic_path(@topic), method: :delete, data: { confirm: 'Are you sure?' } do %>
+  Delete
+<% end %> |
 <%= link_to 'Back', concept_path(@topic.concept) %> </p>

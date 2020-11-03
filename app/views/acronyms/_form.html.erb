@@ -6,6 +6,7 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.rich_text_area :content, class: "trix-editor customized-min-height" %>
+    <%= f.association :topic, as: :select %>
   </div>
 
   <div class="form-actions">

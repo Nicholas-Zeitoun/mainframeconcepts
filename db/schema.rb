@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_160925) do
+ActiveRecord::Schema.define(version: 2020_11_03_015011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_11_02_160925) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "topic_id", null: false
+    t.index ["topic_id"], name: "index_acronyms_on_topic_id"
   end
 
   create_table "action_text_rich_texts", force: :cascade do |t|
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_160925) do
     t.index ["concept_id"], name: "index_topics_on_concept_id"
   end
 
+  add_foreign_key "acronyms", "topics"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "notes", "topics"
   add_foreign_key "topics", "concepts"

@@ -74,6 +74,6 @@ class AcronymsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def acronym_params
-      params.require(:acronym).permit(:title, :content)
+      params.require(:acronym).permit(:title, :content, :topic_id)
     end
 end

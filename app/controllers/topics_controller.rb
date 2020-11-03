@@ -33,7 +33,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    raise
     @topic.destroy
     redirect_to root_path
   end
