@@ -2,13 +2,9 @@
 <%= simple_form_for(@concept) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :category, label: 'Category', collection: selectable_categories %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.submit "Submit", class: "btn btn-outline-primary" %>
 <% end %>
