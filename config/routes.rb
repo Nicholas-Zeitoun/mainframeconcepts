@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   resources :acronyms
-  get 'resources/new'
-  get 'resources/show'
-  get 'resources/edit'
+
   # Concept routes
   resources :concepts do
     resources :topics, only: [:new, :create]
@@ -20,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :notes, only: [:show, :edit, :update, :destroy]
-  resources :resources, only: [:show, :edit, :update, :destroy]
+  resources :resources, only: [:index, :show, :edit, :update, :destroy]
 
   # root to: 'pages#home'
   root to: 'concepts#index'

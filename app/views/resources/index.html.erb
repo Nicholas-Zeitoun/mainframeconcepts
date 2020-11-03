@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resources</h1>
+
+<tbody>
+  <% @resources.each do |resource| %>
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header"><%= link_to resource.title, resource %></div>
+    </div>
+  <% end %>
+</tbody>
+
+<br>
