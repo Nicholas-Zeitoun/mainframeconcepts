@@ -37,7 +37,7 @@
   <!-- Resources and OCADs -->
   <div class="col-12 col-md-4">
     <!-- Desktop Fixed View -->
-    <div class=".d-block .d-sm-none">
+    <div class="d-none d-md-block">
       <div class="position-fixed">
         <h3>Resources</h3>
         <!-- Height Limiter on element -->
@@ -45,20 +45,7 @@
           <% unless @concept.resources.count == 0 %>
             <% @concept.resources.each do |resource| %>
               <% unless resource.id.nil? %>
-                <div class="card bg-light mb-3" style="min-width: 18rem;">
-                  <div class="card-header border-0">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <h5 class="card-title"><%= resource.title %></h5>
-                        <h6 class="card-subtitle text-muted"><span class="badge badge-secondary"><%= resource.category %></span></h6>
-                      </div>
-                      <p>
-                        <%= link_to 'Show', resource_path(resource)  %> |
-                        <a href="<%= resource.link %>" target="_blank" class="card-link">View <i class="fas fa-external-link-alt"></i></a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <%= render partial: 'shared/resource_card', collection: [resource], as: :resource %>
               <% end %>
             <% end %>
           <% end %>
@@ -99,17 +86,7 @@
       <h3>Resources</h3>
       <% @concept.resources.each do |resource| %>
         <% unless resource.id.nil? %>
-          <div class="card bg-light mb-3" style="min-width: 18rem;">
-            <div class="card-header border-0">
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <h5 class="card-title"><%= resource.title %></h5>
-                  <h6 class="card-subtitle text-muted"><span class="badge badge-secondary"><%= resource.category %></span></h6>
-                </div>
-                <a href="<%= resource.link %>" target="_blank" class="card-link">View</a>
-              </div>
-            </div>
-          </div>
+          <%= render partial: 'shared/resource_card', collection: [resource], as: :resource %>
         <% end %>
       <% end %>
       <!-- Add a new resource -->
