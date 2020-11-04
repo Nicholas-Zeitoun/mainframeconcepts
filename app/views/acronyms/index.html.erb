@@ -1,29 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Acronyms</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @acronyms.each do |acronym| %>
-      <tr>
-        <td><%= acronym.title %></td>
-        <td><%= acronym.content %></td>
-        <td><%= link_to 'Show', acronym %></td>
-        <td><%= link_to 'Edit', edit_acronym_path(acronym) %></td>
-        <td><%= link_to 'Destroy', acronym, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Acronym', new_acronym_path %>
+<div class="row">
+  <div class="col-12 col-md-8">
+    <p id="notice"><%= notice %></p>
+    <h1>O.C.A.Ds</h1>
+    <hr>
+    <div class="">
+      <% @acronyms.each do |acronym| %>
+        <div class="card topic-card border-secondary mb-3" style="min-width: 13rem;">
+          <div class="card-body text-secondary">
+            <h5 class="card-title"><%= acronym.title %></h5>
+            <p class="card-text"><%= acronym.content %></p>
+          </div>
+          <%= link_to '', acronym_path(acronym), class: "stretched-link" %>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+    <%= link_to 'New Acronym', new_acronym_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>

@@ -8,7 +8,7 @@ class AcronymsController < ApplicationController
       sql_query = "title ILIKE :query OR content ILIKE :query"
       @acronyms = Acronym.where(sql_query, query: "%#{params[:query]}%")
     else
-      @acronyms = Acronym.all
+      @acronyms = Acronym.order('title ASC')
     end
   end
 

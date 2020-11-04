@@ -44,7 +44,7 @@
         <!-- Height Limiter on element -->
         <div class="mb-2" style="max-height: 40vh; overflow: auto;">
           <% unless @concept.resources.count == 0 %>
-            <% @concept.resources.each do |resource| %>
+            <% @concept.resources.order('title ASC').each do |resource| %>
               <% unless resource.id.nil? %>
                 <%= render partial: 'shared/resource_card', collection: [resource], as: :resource %>
               <% end %>
@@ -71,7 +71,7 @@
         <h3 class="mt-3">OCADs</h3>
         <!-- Height Limiter on element -->
         <div class="mb-2" style="max-height: 40vh; overflow: auto;">
-          <% @concept.acronyms.each do |acronym| %>
+          <% @concept.acronyms.order('title ASC').each do |acronym| %>
             <%= render partial: 'shared/acronym_card', collection: [acronym], as: :acronym %>
           <% end %>
         </div>
@@ -80,7 +80,7 @@
     <!-- Mobile View -->
     <div class="d-sm-inline d-md-none">
       <h3>Resources</h3>
-      <% @concept.resources.each do |resource| %>
+      <% @concept.resources.order('title ASC').each do |resource| %>
         <% unless resource.id.nil? %>
           <%= render partial: 'shared/resource_card', collection: [resource], as: :resource %>
         <% end %>
@@ -104,7 +104,7 @@
       <!-- OCADs -->
       <h3 class="mt-3">OCADs</h3>
       <div class="mb-2" style="max-height: 40vh; overflow: auto;">
-        <% @concept.acronyms.each do |acronym| %>
+        <% @concept.acronyms.order('title ASC').each do |acronym| %>
           <%= render partial: 'shared/acronym_card', collection: [acronym], as: :acronym %>
         <% end %>
       </div>

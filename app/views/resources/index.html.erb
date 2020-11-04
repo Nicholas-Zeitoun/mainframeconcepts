@@ -3,19 +3,17 @@
     <p id="notice"><%= notice %></p>
     <h1>Resources</h1>
     <hr>
-    <tbody>
-      <% @resources.each do |resource| %>
-        <div class="card border-secondary mb-3">
-          <div class="card-header"><%= resource.title %></div>
-          <div class="card-body text-secondary">
-            <h5 class="card-title"><span class="badge badge-secondary"><%= resource.category %></span></h5>
-            <p class="card-text">
-              <%= link_to 'Show', resource_path(resource)  %> |
-              <a href="<%= resource.link %>" target="_blank" class="card-link">View Resource <i class="fas fa-external-link-alt"></i></a>
-            </p>
-          </div>
+    <% @resources.each do |resource| %>
+      <div class="card border-secondary mb-3">
+        <div class="card-header"><%= resource.title %></div>
+        <div class="card-body text-secondary">
+          <h5 class="card-title"><span class="badge badge-secondary"><%= resource.category %></span></h5>
+          <p class="card-text">
+            <%= link_to 'Show', resource_path(resource)  %> |
+            <a href="<%= resource.link %>" target="_blank" class="card-link">View Resource <i class="fas fa-external-link-alt"></i></a>
+          </p>
         </div>
-      <% end %>
-    </tbody>
+      </div>
+    <% end %>
   </div>
 </div>

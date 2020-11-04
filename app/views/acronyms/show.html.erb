@@ -1,14 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<h1><%= @acronym.title %></h1>
+<p><%= @acronym.content %></p>
+<hr>
 <p>
-  <strong>Title:</strong>
-  <%= @acronym.title %>
+  <%= link_to 'Edit', edit_acronym_path(@acronym), class: "text-warning" %>
+  | <%= link_to 'Destroy', @acronym, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %>
+  | <%= link_to 'Back', acronyms_path %>
 </p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @acronym.content %>
-</p>
-
-<%= link_to 'Edit', edit_acronym_path(@acronym) %> |
-<%= link_to 'Back', acronyms_path %>
