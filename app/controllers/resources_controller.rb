@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_action :set_resource, only: [:show, :edit, :update]
+  before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
     @resources = Resource.all
@@ -29,10 +29,17 @@ class ResourcesController < ApplicationController
     end
   end
 
+  def update
+    if @resource.update(resource_params)
+      redirect_to @resource, notice: 'Resource was successfully updated'
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    raise
     @resource.destroy
-    redirect_to request.referrer
+    redirect_to root_path
   end
 
   private

@@ -1,2 +1,12 @@
-<h1>Resources#edit</h1>
-<p>Find me in app/views/resources/edit.html.erb</p>
+<%= simple_form_for [ @parent, @resource ] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <%= f.input :title, label: 'Resource Title' %>
+  <%= f.input :category, label: 'Resource Category' %>
+  <%= f.input :link, label: 'Resource Link' %>
+
+  <%= f.submit "Submit", class: "btn btn-outline-primary" %>
+<% end %>
+<hr>
+<%= link_to 'Back', resource_path(@resource) %>

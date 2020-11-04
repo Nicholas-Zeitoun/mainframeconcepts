@@ -1,2 +1,8 @@
-<h1>Resources#show</h1>
-<p>Find me in app/views/resources/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<h1><%= @resource.title %></h1>
+<h4><span class="badge badge-secondary"><%= @resource.category %></span></h4>
+<a href="<%= @resource.link %>" target="_blank" class="card-link">View Resource <i class="fas fa-external-link-alt"></i></a>
+<hr>
+<%= link_to 'Edit', edit_resource_path(@resource), class: "text-warning" %> |
+<%= link_to 'Delete', resource_path(@resource), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %> |
+<%= link_to 'Back', :back %>
