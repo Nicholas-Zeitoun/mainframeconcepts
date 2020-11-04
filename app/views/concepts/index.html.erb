@@ -46,6 +46,50 @@
       <% end %>
     </div>
   </div>
+  <!-- Resources and OCADs -->
+  <div class="col-12 col-md-4">
+    <div class="d-none d-md-block">
+      <div class="position-fixed mt-4">
+        <h3>Resources</h3>
+        <div class="card" style="max-width: 22rem;">
+          <div class="card-body">
+            <h5 class="card-title">Deep Dive Material</h5>
+            <p class="card-text">Reinforce your knowledge of Mainframe Topics and hone your expertise with these resources...</p>
+            <%= link_to 'View Resources', resources_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+        <!-- OCADs -->
+        <h3 class="mt-3">O.C.A.Ds</h3>
+        <div class="card" style="max-width: 22rem;">
+          <div class="card-body">
+            <h5 class="card-title">Acronym Helper</h5>
+            <p class="card-text">Never forget your mainframe concepts with the handy Overly Complicated Acronym Definitions manifest...</p>
+            <%= link_to 'View OCADs', acronyms_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile View -->
+    <div class="d-sm-inline d-md-none">
+      <h3>Resources</h3>
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title">Deep Dive Material</h5>
+          <p class="card-text">Reinforce your knowledge of Mainframe Topics and hone your expertise with these resources...</p>
+          <%= link_to 'View Resources', resources_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <!-- OCADs -->
+      <h3 class="mt-3">OCADs</h3>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Acronym Helper</h5>
+          <p class="card-text">Never forget your mainframe concepts with the handy Overly Complicated Acronym Definitions manifest...</p>
+          <%= link_to 'View OCADs', acronyms_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
