@@ -20,6 +20,8 @@
             <div class="card-header">Core Concept</div>
             <div class="card-body">
               <h5 class="card-title"><%= concept.title %></h5>
+              <p class="card-text mb-0"><small class="text-muted"><%= concept.topics.count %> Topics</small>
+               <small class="text-muted"><%= concept.resources.count %> Resources</small></p>
               <%= link_to '', concept, class: "stretched-link" %>
             </div>
           </div>
@@ -35,6 +37,8 @@
             <div class="card-header">Language</div>
             <div class="card-body">
               <h5 class="card-title"><%= concept.title %></h5>
+              <p class="card-text mb-0"><small class="text-muted"><%= concept.topics.count %> Topics</small>
+               <small class="text-muted"><%= concept.resources.count %> Resources</small></p>
               <%= link_to '', concept, class: "stretched-link" %>
             </div>
           </div>
