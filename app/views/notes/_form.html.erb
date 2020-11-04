@@ -1,9 +1,8 @@
-
 <%= simple_form_for [ @topic, @note ] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs mb-3">
     <%= f.input :title %>
     <%#= f.text_area :content, data: { editor: 'markdown' }, rows: 10 %>
     <div class="field">
@@ -12,7 +11,5 @@
     </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.submit "Submit", class: "btn btn-outline-primary" %>
 <% end %>
