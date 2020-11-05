@@ -5,12 +5,16 @@
     <hr>
     <div class="">
       <% @acronyms.each do |acronym| %>
-        <div class="card topic-card border-secondary mb-3" style="min-width: 13rem;">
-          <div class="card-body text-secondary">
-            <h5 class="card-title"><%= acronym.title %></h5>
-            <p class="card-text"><%= acronym.content %></p>
+        <div class="mb-3">
+          <div class="card topic-card border-secondary mb-2" style="min-width: 13rem;">
+            <div class="card-body text-secondary">
+              <h5 class="card-title"><%= acronym.title %></h5>
+              <p class="card-text"><%= acronym.content %></p>
+              <p class="card-text"><small class="text-muted"><%= acronym.topic.title %></small></p>
+            </div>
+            <%= link_to '', topic_path(acronym.topic), class: "stretched-link" %>
           </div>
-          <%= link_to '', acronym_path(acronym), class: "stretched-link" %>
+          <%= link_to 'Show', acronym_path(acronym) %>
         </div>
       <% end %>
     </div>
