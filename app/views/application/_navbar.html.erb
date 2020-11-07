@@ -1,6 +1,10 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <%= link_to 'Mainframe Concepts', root_path, class: "navbar-brand" %>
+    <!-- Logo -->
+    <%= link_to root_path, class: "d-flex align-items-center navbar-brand" do %>
+      <%= image_tag("jenay-miller.png", class: "avatar") %>
+      <h3 class="m-0">Mainframe Concepts</h3>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
