@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="card-deck">
-      <% @concept.topics.each do |topic| %>
+      <% @concept.topics.order('title ASC').each do |topic| %>
         <div class="card topic-card bg-light mb-3" style="min-width: 18rem;">
           <div class="card-header"><%= topic.title %></div>
           <div class="card-body text-secondary">

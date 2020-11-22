@@ -22,7 +22,7 @@
         <p><%= link_to 'New Note', new_topic_note_path(@topic) %></p>
       </div>
     </div>
-    <% @topic.notes.each do |note| %>
+    <% @topic.notes.order('title ASC').each do |note| %>
       <div class="card mb-2">
         <div class="card-header d-flex align-items-center justify-content-between">
           <h4 class="m-0"> <%= note.title %> </h4>
